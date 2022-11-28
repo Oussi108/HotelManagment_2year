@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hotel_Managment" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CreditCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pin" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Hotel_Managment.FK_UserCreditCard" FromRole="CreditCard" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrderFoods" Relationship="Self.FK_OrderFoodFood" FromRole="Foods" ToRole="OrderFoods" />
+  </EntityType>
+  <EntityType Name="OrderFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="FoodId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Food" Relationship="Self.FK_OrderFoodFood" FromRole="OrderFoods" ToRole="Foods" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_RoomOrderFood" FromRole="OrderFoods" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Premission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PremissionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Hotel_Managment.FK_UserPremission" FromRole="Premission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_RoomReservation" FromRole="Reservations" ToRole="Rooms" />
+    <NavigationProperty Name="User" Relationship="Hotel_Managment.FK_UserReservation" FromRole="Reservation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Size" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="available" Type="Boolean" Nullable="false" />
+    <Property Name="PriceD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrderFoods" Relationship="Self.FK_RoomOrderFood" FromRole="Rooms" ToRole="OrderFoods" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_RoomReservation" FromRole="Rooms" ToRole="Reservations" />
+    <NavigationProperty Name="Services" Relationship="Self.FK_RoomService" FromRole="Rooms" ToRole="Services" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="TypeService" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_RoomService" FromRole="Services" ToRole="Rooms" />
+  </EntityType>
+  <Association Name="FK_OrderFoodFood">
+    <End Role="Foods" Type="Self.Food" Multiplicity="1" />
+    <End Role="OrderFoods" Type="Self.OrderFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Foods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderFoods">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomOrderFood">
+    <End Role="Rooms" Type="Self.Room" Multiplicity="1" />
+    <End Role="OrderFoods" Type="Self.OrderFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderFoods">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomReservation">
+    <End Role="Rooms" Type="Self.Room" Multiplicity="1" />
+    <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoomService">
+    <End Role="Rooms" Type="Self.Room" Multiplicity="1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelmanagmentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CreditCards" EntityType="Self.CreditCard" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="OrderFoods" EntityType="Self.OrderFood" />
+    <EntitySet Name="Premissions" EntityType="Self.Premission" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <AssociationSet Name="FK_OrderFoodFood" Association="Self.FK_OrderFoodFood">
+      <End Role="Foods" EntitySet="Foods" />
+      <End Role="OrderFoods" EntitySet="OrderFoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomOrderFood" Association="Self.FK_RoomOrderFood">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="OrderFoods" EntitySet="OrderFoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomReservation" Association="Self.FK_RoomReservation">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoomService" Association="Self.FK_RoomService">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="Hotel_Managment.User" />
+    <AssociationSet Name="FK_UserCreditCard" Association="Hotel_Managment.FK_UserCreditCard">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CreditCard" EntitySet="CreditCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPremission" Association="Hotel_Managment.FK_UserPremission">
+      <End Role="Premission" EntitySet="Premissions" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReservation" Association="Hotel_Managment.FK_UserReservation">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PremissionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CreditCards" Relationship="Hotel_Managment.FK_UserCreditCard" FromRole="User" ToRole="CreditCard" />
+    <NavigationProperty Name="Premission" Relationship="Hotel_Managment.FK_UserPremission" FromRole="User" ToRole="Premission" />
+    <NavigationProperty Name="Reservations" Relationship="Hotel_Managment.FK_UserReservation" FromRole="User" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_UserCreditCard">
+    <End Type="Hotel_Managment.User" Role="User" Multiplicity="0..1" />
+    <End Type="Hotel_Managment.CreditCard" Role="CreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPremission">
+    <End Type="Hotel_Managment.Premission" Role="Premission" Multiplicity="1" />
+    <End Type="Hotel_Managment.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Premission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PremissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReservation">
+    <End Type="Hotel_Managment.User" Role="User" Multiplicity="1" />
+    <End Type="Hotel_Managment.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

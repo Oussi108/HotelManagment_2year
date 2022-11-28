@@ -1,0 +1,17 @@
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Interfaces.csprojAssemblyReference.cache
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.EmployeesSet.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.FoodClient.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.fooditem.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ManagerClient.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ManagmentEmp.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ManagmentRoom.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.MangmentAdmin.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.Paiment.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.paimentEmp.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ReservationClient.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ReservationEmp.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.ServiceClient.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.SettingUser.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Hotel_Managment.StaticticAdmin.resources
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\acer\source\repos\Hotel_Managment\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache

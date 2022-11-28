@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4B807C5-EBA2-4531-AFFD-35AF3404A48F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Interfacesuser</RootNamespace>
+    <AssemblyName>Interfacesuser</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmployeesSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeesSet.Designer.cs">
+      <DependentUpon>EmployeesSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodClient.Designer.cs">
+      <DependentUpon>FoodClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fooditem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="fooditem.Designer.cs">
+      <DependentUpon>fooditem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManagerClient.Designer.cs">
+      <DependentUpon>ManagerClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagmentEmp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManagmentEmp.Designer.cs">
+      <DependentUpon>ManagmentEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagmentRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManagmentRoom.Designer.cs">
+      <DependentUpon>ManagmentRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MangmentAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MangmentAdmin.Designer.cs">
+      <DependentUpon>MangmentAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paiment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paiment.Designer.cs">
+      <DependentUpon>Paiment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paimentEmp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="paimentEmp.Designer.cs">
+      <DependentUpon>paimentEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReservationClient.Designer.cs">
+      <DependentUpon>ReservationClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReservationEmp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReservationEmp.Designer.cs">
+      <DependentUpon>ReservationEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ServiceClient.Designer.cs">
+      <DependentUpon>ServiceClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingUser.Designer.cs">
+      <DependentUpon>SettingUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaticticAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaticticAdmin.Designer.cs">
+      <DependentUpon>StaticticAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmployeesSet.resx">
+      <DependentUpon>EmployeesSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodClient.resx">
+      <DependentUpon>FoodClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fooditem.resx">
+      <DependentUpon>fooditem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerClient.resx">
+      <DependentUpon>ManagerClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagmentEmp.resx">
+      <DependentUpon>ManagmentEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagmentRoom.resx">
+      <DependentUpon>ManagmentRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MangmentAdmin.resx">
+      <DependentUpon>MangmentAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paiment.resx">
+      <DependentUpon>Paiment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paimentEmp.resx">
+      <DependentUpon>paimentEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationClient.resx">
+      <DependentUpon>ReservationClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationEmp.resx">
+      <DependentUpon>ReservationEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceClient.resx">
+      <DependentUpon>ServiceClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingUser.resx">
+      <DependentUpon>SettingUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaticticAdmin.resx">
+      <DependentUpon>StaticticAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
